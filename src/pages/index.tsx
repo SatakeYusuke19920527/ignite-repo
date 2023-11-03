@@ -17,6 +17,12 @@ export default function Home() {
     }
     setIsLoading(false);
   };
+
+  const getLangChainData = async () => {
+    const res = await axios.get('api/langchain');
+    console.log("🚀 ~ file: index.tsx:23 ~ getLangChainData ~ res:", res.data)
+  }
+
   return (
     <main className={`flex min-h-screen flex-col items-center p-24`}>
       <h1>🤖なんでも聞いてください🤖</h1>
@@ -34,13 +40,22 @@ export default function Home() {
         className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500"
         placeholder="Write your thoughts here..."
       ></textarea>
-      <button
-        onClick={getAzData}
-        type="button"
-        className="my-5 py-2.5 px-5 mr-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200"
-      >
-        Send
-      </button>
+      <div className='flex items-center'>
+        <button
+          onClick={getAzData}
+          type="button"
+          className="my-5 py-2.5 px-5 mr-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200"
+        >
+          Send
+        </button>
+        <button
+          onClick={getLangChainData}
+          type="button"
+          className="my-5 py-2.5 px-5 mr-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200"
+        >
+          LangChain
+        </button>
+      </div>
       {isLoading ? (
         <div role="status">
           <svg

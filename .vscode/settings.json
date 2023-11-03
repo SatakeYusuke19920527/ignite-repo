@@ -1,0 +1,4 @@
+{
+  "appService.defaultWebAppToDeploy": "/subscriptions/9819147e-88ee-45cb-9c60-d3cd02e918e8/resourceGroups/ignite-rg/providers/Microsoft.Web/sites/ignite-web-app",
+  "appService.deploySubpath": "."
+}
